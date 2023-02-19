@@ -29,9 +29,6 @@ DEVICE_PATH := device/xiaomi/twolip
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
-# Inherit properties.mk
-$(call inherit-product, $(DEVICE_PATH)/properties.mk)
-
 # Audio
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
@@ -76,6 +73,9 @@ PRODUCT_PACKAGES += \
 # Powerhint
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+# Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Ramdisk
 PRODUCT_PACKAGES += \
